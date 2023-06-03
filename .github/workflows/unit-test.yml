@@ -1,5 +1,5 @@
 
-ame: Unit Tests
+name: Run Unit Tests
 
 on:
   push:
