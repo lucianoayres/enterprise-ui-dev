@@ -12,7 +12,7 @@
 Let's take a look at a very simple workflow that will run our unit tests.
 
 ```yml
-name: Unit Tests
+name: Run Unit Tests
 
 on:
   push:
