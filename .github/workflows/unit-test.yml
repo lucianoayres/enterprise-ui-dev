@@ -30,8 +30,8 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build
-      
- coverage:
+
+  coverage:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
