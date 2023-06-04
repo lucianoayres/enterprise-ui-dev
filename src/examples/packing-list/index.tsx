@@ -5,7 +5,7 @@ import MarkAllAsUnpacked from './mark-all-as-unpacked';
 import NewItem from './new-item';
 import { store } from './store';
 
-const PackingList = () => {
+export const PackingList = () => {
   return (
     <Provider store={store}>
       <Frame>
@@ -23,4 +23,10 @@ const PackingList = () => {
   );
 };
 
-export default PackingList;
+const Application = () => {
+  <Provider store={store}>
+    <PackingList />
+  </Provider>;
+};
+
+export default Application;
