@@ -2,6 +2,8 @@
 
 # Frontend Masters Course
 
+## Started on June 3, 2023
+
 This repository is a companion website to the [Frontend Masters](https://frontendmasters.com) course [Enterprise UI Development](https://frontendmasters.com/courses/enterprise-ui-dev).
 
 # Introduction
