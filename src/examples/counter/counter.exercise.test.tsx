@@ -1,5 +1,4 @@
-import { screen, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen } from './test/utilities.solution';
 import Counter from '.';
 
 test('it should render the component', () => {
@@ -9,20 +8,32 @@ test('it should render the component', () => {
 });
 
 test('it should increment when the "Increment" button is pressed', async () => {
-  const user = userEvent.setup();
-  render(<Counter />);
+  const { user } = render(<Counter />);
 
   const currentCount = screen.getByTestId('current-count');
-  const incrementButton = screen.getByRole('button', { name: 'Increment' });
+  const incrementButton = screen.getByRole('button', { name: /increment/i });
 
   await user.click(incrementButton);
 
   expect(currentCount).toHaveTextContent('1');
 });
 
-test.todo('it should render the component with an initial count', () => {});
+test('it should render the component with an initial count', () => {
+  expect.hasAssertions();
+  render(<Counter initialCount={3} />);
+  const currentCount = screen.getByTestId('current-count');
 
-test.todo(
-  'it should reset the count when the "Reset" button is pressed',
-  async () => {},
-);
+  expect(currentCount).toHaveTextContent('3');
+});
+
+test('it should reset the count when the "Reset" button is pressed', async () => {
+  expect.hasAssertions();
+  const { user } = render(<Counter initialCount={3} />);
+
+  const currentCount = screen.getByTestId('current-count');
+  const resetButton = screen.getByRole('button', { name: /reset/i });
+
+  await user.click(resetButton);
+
+  expect(currentCount).toHaveTextContent('0');
+});
