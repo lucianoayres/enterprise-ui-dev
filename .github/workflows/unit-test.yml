@@ -27,7 +27,7 @@ jobs:
       - name: Checkout and Setup Node
         uses: ./.github/actions/checkout-and-setup
       - run: npm test -- --coverage
-        uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3
         name: Active coverage report
         with:
           name: coverage-report
